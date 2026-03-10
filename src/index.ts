@@ -1,14 +1,22 @@
 import express from "express";
 import routes from "./routes";
 import { errorHandler } from "./middlewares/errorHandler";
+import dotenv from "dotenv";
+import connectDB from "./config/db";
+
+dotenv.config();
 
 const app = express();
+
+connectDB();
 
 // This is used to parse JSON in request body
 app.use(express.json());
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
 })
 
 // All routes are defined here

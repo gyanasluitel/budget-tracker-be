@@ -24,12 +24,12 @@ export const create = async (
     next: NextFunction
 ) => {
     try {
-        const data = req.body;
+        const requestBody = req.body;
 
-        const response = await budgetTrackerService.create(data);
+        const data = await budgetTrackerService.create(requestBody);
         // Core logic
         res.status(201).json({
-            data: response
+            data
         });
     }
     catch (error) {
