@@ -58,3 +58,40 @@ export const fetchById = async (
 
     }
 }
+
+export const deleteById = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const id = req.params.id;
+
+        await budgetTrackerService.deleteById(String(id));
+
+        res.status(200).json({})
+    }
+    catch (error) {
+        next(error);
+    }
+}
+
+export const update = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const requestBody = req.body;
+        const id = req.params.id;
+
+        const data = await budgetTrackerService.update(String(id), requestBody);
+
+        res.status(200).json({
+            data
+        });
+    }
+    catch (error) {
+        next(error);
+    }
+}
