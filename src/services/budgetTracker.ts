@@ -5,7 +5,8 @@ export const create = async (data: BudgetItemRequest) => {
     return await BudgetItemModel.create(data);
 }
 
-export const fetchAll = async (req: any) => {
+export const fetchAll = async () => {
+    return await BudgetItemModel.find();
 }
 
 

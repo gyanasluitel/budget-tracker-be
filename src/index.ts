@@ -3,6 +3,7 @@ import routes from "./routes";
 import { errorHandler } from "./middlewares/errorHandler";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
+import cors from "cors";
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ connectDB();
 
 // This is used to parse JSON in request body
 app.use(express.json());
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 

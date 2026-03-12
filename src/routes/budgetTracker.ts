@@ -5,7 +5,7 @@ import { createBudgetItemSchema, fetchAll, fetchByIdSchema } from "../schemas/bu
 
 const router = Router();
 
-router.get("/", validateQueryParams(fetchAll), budgetTrackerController.fetchAll)
+router.get("/", budgetTrackerController.fetchAll)
 
 router.post("/", validateRequestBody(createBudgetItemSchema), budgetTrackerController.create);
 

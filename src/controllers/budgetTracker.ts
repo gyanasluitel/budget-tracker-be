@@ -7,7 +7,9 @@ export const fetchAll = async (
     next: NextFunction
 ) => {
     try {
-        const response = await budgetTrackerService.fetchAll(req.query);
+        console.log("Fetching all budget items");
+
+        const response = await budgetTrackerService.fetchAll();
 
         res.status(200).json({
             data: response
